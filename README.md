@@ -31,13 +31,5 @@ O desafio extra usa **Context API** para compartilhar notificações. O componen
 - **src/components/ToastProvider.jsx:** contexto e ciclo de vida das notificações.
 - **src/App.css** e **src/index.css:** layout, estados visuais e ajustes responsivos.
 
-## Roteiro curto para o vídeo
 
-1. Apresente a tela e mostre onde App.jsx combina os componentes.
-2. Troque as abas e use as setas do teclado para mostrar a navegação.
-3. Marque uma aula concluída e explique como o valor atualiza a barra de progresso.
-4. Filtre o catálogo, navegue entre páginas e salve um curso para ver o Toast.
-5. Abra perguntas diferentes no acordeão e explique aria-expanded.
-6. Mostre o ToastProvider e explique como useContext permite que áreas diferentes solicitem uma notificação.
-
-Cursos, progresso e itens salvos são fictícios e ficam apenas no estado da página. Revise o código e pratique a explicação com suas próprias palavras antes de gravar.
+Cursos, progresso e itens salvos são fictícios e ficam apenas no estado da página.
