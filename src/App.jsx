@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { NavLink, Route, Routes } from 'react-router'
 
 function Acordeao({ itens }) {
   const [aberto, setAberto] = useState(null)
@@ -10,14 +11,14 @@ function Acordeao({ itens }) {
           <button
             type="button"
             aria-expanded={aberto === indice}
-            aria-controls={`resposta-${indice}`}
+            aria-controls={'resposta-' + indice}
             onClick={() => setAberto(aberto === indice ? null : indice)}
           >
             {item.titulo} {aberto === indice ? '−' : '+'}
           </button>
           <div
-            id={`resposta-${indice}`}
-            className={`resposta ${aberto === indice ? 'aberta' : ''}`}
+            id={'resposta-' + indice}
+            className={'resposta ' + (aberto === indice ? 'aberta' : '')}
             aria-hidden={aberto !== indice}
             inert={aberto !== indice}
           >
@@ -135,20 +136,15 @@ const abas = [
 
 const cursos = ['Introdução ao React', 'Componentes e props', 'Estado e eventos', 'Hooks no React', 'Estilos com CSS', 'Criando uma aplicação']
 
-function App() {
+function PaginaBasica() {
   const [pagina, setPagina] = useState(1)
   const [progresso, setProgresso] = useState(25)
-  const [tema, setTema] = useState('Nenhum')
-  const [mensagem, setMensagem] = useState('')
   const cursosPorPagina = 2
   const totalPaginas = Math.ceil(cursos.length / cursosPorPagina)
   const cursosDaPagina = cursos.slice((pagina - 1) * cursosPorPagina, pagina * cursosPorPagina)
 
   return (
-    <main>
-      <h1>Exemplos de componentes React</h1>
-      <p>Uma demonstração simples dos componentes da atividade.</p>
-
+    <>
       <section>
         <h2>1. Acordeão</h2>
         <Acordeao itens={perguntas} />
@@ -166,7 +162,16 @@ function App() {
         <button type="button" onClick={() => setProgresso(Math.min(progresso + 25, 100))} disabled={progresso === 100}>Avançar</button>
         <button type="button" onClick={() => setProgresso(0)}>Reiniciar</button>
       </section>
+    </>
+  )
+}
 
+function PaginaInteracoes() {
+  const [tema, setTema] = useState('Nenhum')
+  const [mensagem, setMensagem] = useState('')
+
+  return (
+    <>
       <section>
         <h2>4. Abas</h2>
         <Abas itens={abas} />
@@ -183,6 +188,25 @@ function App() {
         <button type="button" onClick={() => setMensagem('Sua ação foi realizada com sucesso!')}>Mostrar notificação</button>
         <Toast mensagem={mensagem} aoFechar={() => setMensagem('')} />
       </section>
+    </>
+  )
+}
+
+function App() {
+  return (
+    <main>
+      <h1>Exemplos de componentes React</h1>
+      <p>Uma demonstração simples dos componentes da atividade.</p>
+
+      <nav className="navegacao" aria-label="Páginas da atividade">
+        <NavLink to="/">Componentes básicos</NavLink>
+        <NavLink to="/interacoes">Interações</NavLink>
+      </nav>
+
+      <Routes>
+        <Route path="/" element={<PaginaBasica />} />
+        <Route path="/interacoes" element={<PaginaInteracoes />} />
+      </Routes>
     </main>
   )
 }

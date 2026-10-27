@@ -11,6 +11,6 @@ npm install
 npm run dev
 ```
 
-Abra a porta indicada pelo Codespaces para ver a página.
+Abra a porta indicada pelo Codespaces para ver a página. A página inicial mostra o acordeão, a paginação e a barra de progresso. Use o link “Interações” para abrir as abas, o menu suspenso e a notificação.
 
-Os componentes e os dados de exemplo estão em `src/App.jsx`. Os estilos estão em `src/index.css`. As informações são fictícias e ficam apenas no estado da página.
+Os componentes e as duas páginas estão em `src/App.jsx`. O React Router conecta os endereços às páginas. Os estilos estão em `src/index.css`.

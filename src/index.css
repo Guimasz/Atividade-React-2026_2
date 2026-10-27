@@ -18,3 +18,6 @@ progress { display: block; width: 100%; margin: 10px 0; }
 .opcoes { position: absolute; z-index: 1; display: grid; min-width: 100%; background: white; border: 1px solid #aaa; }
 .toast { position: fixed; right: 16px; bottom: 16px; display: flex; align-items: center; gap: 12px; padding: 10px; background: #d6f1d9; border: 1px solid #489454; border-radius: 4px; }
 @media (prefers-reduced-motion: reduce) { .resposta { transition: none; } }
+.navegacao { display: flex; gap: 8px; margin: 20px 0; }
+.navegacao a { padding: 8px 12px; color: #285f9e; }
+.navegacao a[aria-current="page"] { background: #285f9e; color: white; }
