@@ -1,61 +1,20 @@
-:root {
-  font-family: "Avenir Next", Avenir, "Segoe UI", sans-serif;
-  color: #27373b;
-  background: #f3f4f0;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-weight: 400;
-  --paper: #fff;
-  --canvas: #f3f4f0;
-  --ink: #27373b;
-  --muted: #7b8588;
-  --line: #e6e9e4;
-  --green: #4d7864;
-  --deep-green: #183943;
-  --clay: #b17d5f;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-html {
-  min-width: 320px;
-  scroll-behavior: smooth;
-}
-
-body {
-  min-width: 320px;
-  min-height: 100vh;
-  margin: 0;
-  background: var(--canvas);
-}
-
-button,
-a {
-  font: inherit;
-}
-
-button {
-  cursor: pointer;
-}
-
-button:disabled {
-  cursor: not-allowed;
-}
-
-a {
-  color: inherit;
-}
-
-:focus-visible {
-  outline: 3px solid #b5825e;
-  outline-offset: 3px;
-}
-
-::selection {
-  background: #dce8dc;
-  color: #203c32;
-}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Arial, sans-serif; color: #222; background: #f5f5f5; }
+main { width: min(100% - 32px, 700px); margin: 32px auto; }
+section { margin: 20px 0; padding: 16px; background: white; border: 1px solid #ddd; border-radius: 6px; }
+h1 { font-size: 1.7rem; }
+h2 { font-size: 1.2rem; }
+button { margin: 4px; padding: 8px 12px; cursor: pointer; }
+button:disabled { cursor: not-allowed; }
+button[aria-current="page"], button[aria-pressed="true"] { background: #285f9e; color: white; }
+button:focus-visible { outline: 3px solid #285f9e; outline-offset: 2px; }
+progress { display: block; width: 100%; margin: 10px 0; }
+.pergunta { border-bottom: 1px solid #ddd; }
+.pergunta > button { width: 100%; margin: 0; text-align: left; }
+.resposta { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.25s; }
+.resposta.aberta { grid-template-rows: 1fr; }
+.resposta > div { overflow: hidden; }
+.menu { position: relative; display: inline-block; }
+.opcoes { position: absolute; z-index: 1; display: grid; min-width: 100%; background: white; border: 1px solid #aaa; }
+.toast { position: fixed; right: 16px; bottom: 16px; display: flex; align-items: center; gap: 12px; padding: 10px; background: #d6f1d9; border: 1px solid #489454; border-radius: 4px; }
+@media (prefers-reduced-motion: reduce) { .resposta { transition: none; } }
