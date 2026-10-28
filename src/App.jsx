@@ -134,14 +134,21 @@ const abas = [
   { titulo: 'Contato', conteudo: 'Em caso de dúvida, converse com o professor.' },
 ]
 
-const exemplos = ['Acordeão', 'Paginação', 'Barra de progresso', 'Abas', 'Menu suspenso', 'Notificação Toast']
+const topicosReact = [
+  { titulo: 'Componentes', descricao: 'São partes da interface que podem ser usadas para montar uma página.' },
+  { titulo: 'JSX', descricao: 'Permite descrever a interface usando uma sintaxe parecida com HTML dentro do JavaScript.' },
+  { titulo: 'Props', descricao: 'São informações que um componente recebe de outro componente.' },
+  { titulo: 'Estado', descricao: 'Guarda uma informação que pode mudar durante o uso da página.' },
+  { titulo: 'Eventos', descricao: 'Ações como um clique podem chamar uma função e mudar o que aparece.' },
+  { titulo: 'Hooks', descricao: 'São funções do React, como useState, que permitem usar recursos nos componentes.' },
+]
 
 function PaginaBasica() {
   const [pagina, setPagina] = useState(1)
   const [progresso, setProgresso] = useState(25)
   const itensPorPagina = 2
-  const totalPaginas = Math.ceil(exemplos.length / itensPorPagina)
-  const itensDaPagina = exemplos.slice((pagina - 1) * itensPorPagina, pagina * itensPorPagina)
+  const totalPaginas = Math.ceil(topicosReact.length / itensPorPagina)
+  const topicosDaPagina = topicosReact.slice((pagina - 1) * itensPorPagina, pagina * itensPorPagina)
 
   return (
     <>
@@ -151,8 +158,15 @@ function PaginaBasica() {
       </section>
 
       <section>
-        <h2>2. Paginação</h2>
-        <ul>{itensDaPagina.map((exemplo) => <li key={exemplo}>{exemplo}</li>)}</ul>
+        <h2>2. Paginação de conceitos React</h2>
+        <p>Veja dois conceitos por página:</p>
+        <ul>
+          {topicosDaPagina.map((topico) => (
+            <li key={topico.titulo}>
+              <strong>{topico.titulo}:</strong> {topico.descricao}
+            </li>
+          ))}
+        </ul>
         <Paginacao paginaAtual={pagina} totalPaginas={totalPaginas} aoMudarPagina={setPagina} />
       </section>
 

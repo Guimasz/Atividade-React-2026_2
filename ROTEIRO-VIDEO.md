@@ -2,7 +2,7 @@
 
 1. Apresente a página e os seis exemplos de componentes.
 2. Abra e feche as perguntas do acordeão.
-3. Navegue pelas páginas da lista de exemplos de componentes React.
+3. Navegue pelas páginas de conceitos React e observe que a lista de explicações muda.
 4. Aumente e reinicie a barra de progresso.
 5. Troque as abas e escolha uma opção no menu suspenso.
 6. Mostre a notificação e explique como ela desaparece.
