@@ -63,7 +63,7 @@ function Abas({ itens }) {
 
   return (
     <div>
-      <div aria-label="Conteúdos do curso">
+      <div aria-label="Seções de conteúdo">
         {itens.map((item, indice) => (
           <button type="button" key={item.titulo} aria-pressed={ativa === indice} onClick={() => setAtiva(indice)}>
             {item.titulo}
@@ -134,14 +134,14 @@ const abas = [
   { titulo: 'Contato', conteudo: 'Em caso de dúvida, converse com o professor.' },
 ]
 
-const cursos = ['Introdução ao React', 'Componentes e props', 'Estado e eventos', 'Hooks no React', 'Estilos com CSS', 'Criando uma aplicação']
+const exemplos = ['Acordeão', 'Paginação', 'Barra de progresso', 'Abas', 'Menu suspenso', 'Notificação Toast']
 
 function PaginaBasica() {
   const [pagina, setPagina] = useState(1)
   const [progresso, setProgresso] = useState(25)
-  const cursosPorPagina = 2
-  const totalPaginas = Math.ceil(cursos.length / cursosPorPagina)
-  const cursosDaPagina = cursos.slice((pagina - 1) * cursosPorPagina, pagina * cursosPorPagina)
+  const itensPorPagina = 2
+  const totalPaginas = Math.ceil(exemplos.length / itensPorPagina)
+  const itensDaPagina = exemplos.slice((pagina - 1) * itensPorPagina, pagina * itensPorPagina)
 
   return (
     <>
@@ -152,7 +152,7 @@ function PaginaBasica() {
 
       <section>
         <h2>2. Paginação</h2>
-        <ul>{cursosDaPagina.map((curso) => <li key={curso}>{curso}</li>)}</ul>
+        <ul>{itensDaPagina.map((exemplo) => <li key={exemplo}>{exemplo}</li>)}</ul>
         <Paginacao paginaAtual={pagina} totalPaginas={totalPaginas} aoMudarPagina={setPagina} />
       </section>
 
